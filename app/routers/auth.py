@@ -77,7 +77,7 @@ def sendEmail(a:str):
     password = settings.email_password
     smtp_server = "smtp.gmail.com"  
 
-    html_file_path = "./sa.html"
+    html_file_path = "C:/Users/Sahil/Codes/Python-APIS/Loan_management_apis/app/routers/sa.html"
 
     otp=secrets.randbelow(899999-1)+100000
 
