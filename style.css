@@ -1,0 +1,49 @@
+/* Reset default body margins */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center align all content within the body */
+body {
+  width: 100%; /* Use full width of the viewport */
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  height: 100vh; /* Full viewport height */
+  font-family: 'Arial', sans-serif;
+  color: #33475b;
+}
+
+/* Container styles */
+.otp-container {
+  border: 2px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 32px;
+}
+
+/* OTP input styles */
+#otp {
+  display: flex;
+  justify-content: center; /* Center OTP inputs horizontally */
+  margin-top: 20px; /* Add some top margin */
+}
+
+#otp span {
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+/* Responsive image styles */
+img {
+  width: 20%; /* Adjust the image width as needed */
+  max-width: 100%; /* Ensure images don't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+}
