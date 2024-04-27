@@ -36,6 +36,6 @@ def verify_access_token(token: str, credentials_exception):
 def get_current_user(token:str=Depends(oauth2_scheme),db:Session =Depends(database.get_db)):
     credentials_exception=HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail=f"Could not validate credentials",headers={"WWW-Authenticate":"Bearer"})
     token=verify_access_token(token, credentials_exception)
-    login=Base.classes.customer_login
+    login=Base.classes.employee_login
     user=db.query(login).filter(login.id==token.id).first()
-    return user
+    return user.id
