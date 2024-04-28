@@ -49,7 +49,7 @@ def get_employee_details(details:schema.Customer_details,dbLSession=Depends(get_
     
     Customer=Base.classes.customer_information
     Phone_number=Base.classes.phone_number 
-    customer=Customer(id=get_current_user,Name=details.name,  address=details.address,pan_number =details.pan_card, aadhaar_number=details.aadhaar_card, income=details.income, employment_type=details.employment_type)
+    customer=Customer(id=get_current_user,name=details.name,  address=details.address,pan_number =details.pan_card, aadhaar_number=details.aadhaar_card, income=details.income, employment_type=details.employment_type)
     dbLSession.add(customer)
     dbLSession.flush()
     dbLSession.commit()

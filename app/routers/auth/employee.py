@@ -50,7 +50,7 @@ def get_employee_details(details:schema.Officer_details,dbLSession=Depends(get_d
     
 
     Employee=Base.classes.employee_details
-    employee=Employee(id=get_current_user,Name=details.name, phone_number=details.phone_number, address=details.address,pan_number =details.pan_card, aadhaar_number=details.aadhaar_card, Salary=details.Salary, designation=details.designation)
+    employee=Employee(id=get_current_user,name=details.name, phone_number=details.phone_number, address=details.address,pan_number =details.pan_card, aadhaar_number=details.aadhaar_card, salary=details.Salary, designation=details.designation)
     dbLSession.add(employee)
     dbLSession.flush()
     dbLSession.commit()
