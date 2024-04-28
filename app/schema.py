@@ -51,3 +51,36 @@ class Customer_details(BaseModel):
     class Config:
         orm_mode = True
         arbitrary_types_allowed = True
+
+
+class Loan(BaseModel):
+    id: int = None
+    loan_amount: Decimal = Field(..., gt=Decimal('0'))
+    loan_type: str
+    loan_interest: Decimal = Field(..., gt=Decimal('0'))
+    loan_term: int
+    repayment_frequency: int = Field(..., gt=0)
+
+    
+
+    class Config:
+        orm_mode = True
+
+class Collateral(BaseModel):
+    id:int=None
+    description:str
+    collateral_value:Decimal=Field(...,gt=Decimal('0'))
+    #customer_id:int
+
+    class Config:
+        orm_mode = True
+
+class Loan_status(BaseModel):
+    id:int
+    approval_status:bool
+    loan_amount:Decimal 
+    loan_interest:Decimal 
+    loan_term:int
+    repayment_frequency:int 
+    class Config:
+        orm_mode = True

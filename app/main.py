@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routers.auth import employee , customer
+from .routers import Loan_request , collateral
 
 from .database import engine
 
@@ -20,6 +21,8 @@ app.add_middleware(
 
 app.include_router(employee.router)
 app.include_router(customer.router)
+app.include_router(Loan_request.router)
+app.include_router(collateral.router)
 
 
 
