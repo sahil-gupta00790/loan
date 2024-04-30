@@ -5,6 +5,7 @@ from decimal import Decimal
 
 from sqlalchemy import NUMERIC, Numeric
 
+
 class TokenData(BaseModel):
     id:str=None
 
@@ -77,10 +78,42 @@ class Collateral(BaseModel):
 
 class Loan_status(BaseModel):
     id:int
-    approval_status:bool
+    approvval_status:str
     loan_amount:Decimal 
     loan_interest:Decimal 
     loan_term:int
     repayment_frequency:int 
+    class Config:
+        orm_mode = True
+
+class Investment(BaseModel):
+    id:int=None
+    amount:Decimal=Field(..., gt=Decimal('0'))
+    interest_rate:Decimal=Field(..., gt=Decimal('0'))
+    duration:int=Field(..., gt=0)
+
+    
+
+    class Config:
+        orm_mode = True
+
+class unapproved_loans(BaseModel):
+    customer_id:int
+    email:str
+    income:Decimal
+    phone_number:str
+    loan_amount:Decimal
+    loan_interest:Decimal
+    loan_term:int
+    repayment_frequency:int
+    class Config:
+        orm_mode = True
+        arbitary_types_alllowed=True
+
+class Transaction(BaseModel):
+    id:int=None
+    amount:Decimal
+    sender_id:int
+    
     class Config:
         orm_mode = True

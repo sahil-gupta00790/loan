@@ -54,6 +54,7 @@ def get_employee_details(details:schema.Officer_details,dbLSession=Depends(get_d
     dbLSession.add(employee)
     dbLSession.flush()
     dbLSession.commit()
+    dbLSession.refresh(employee)
     return employee
 
 

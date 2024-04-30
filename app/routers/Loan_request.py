@@ -26,7 +26,7 @@ def create_loan(loan:schema.Loan,get_current_user:int=Depends(oauthcustomer.get_
     db.refresh(new_req)
 
 
-    return new_loan_request
+    return {"message":"Loan request created successfully"}
 
 
 @router.get('/loan/status/',response_model=List[schema.Loan_status])

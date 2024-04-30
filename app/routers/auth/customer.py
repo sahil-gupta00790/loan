@@ -57,6 +57,7 @@ def get_employee_details(details:schema.Customer_details,dbLSession=Depends(get_
     dbLSession.add(phone_number)
     dbLSession.flush()
     dbLSession.commit()
+    dbLSession.refresh(customer)
     
     return customer
 

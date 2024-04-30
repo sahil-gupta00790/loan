@@ -17,7 +17,7 @@ def addCollateral(collateral:schema.Collateral,get_current_user:int=Depends(oaut
     db.add(new_req)
     db.commit()
     db.refresh(new_req)
-    return new_req
+    return {"message":"Collateral added successfully"}
 
 @router.get('/collateral/get')
 def getloanCollateral(get_current_user:int=Depends(oauthcustomer.get_current_user), db:Session=Depends(get_db)):

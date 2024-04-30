@@ -24,7 +24,7 @@ def upgrade() -> None:
 RETURNS TRIGGER AS $$
 BEGIN
     -- Calculate total interest
-    NEW.amount_to_be_paid := (NEW.loan_amount * NEW.loan_interest * (NEW.loan_term*12/NEW.repayment_frequency) / 100) + NEW.loan_amount;
+    NEW.amount_to_be_paid := (NEW.loan_amount * NEW.loan_interest * NEW.loan_term / 100) + NEW.loan_amount;
 
     -- Update the total_interest column in the newly inserted row
     UPDATE loan
